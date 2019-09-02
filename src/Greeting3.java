@@ -7,6 +7,6 @@ public class Greeting3 {
     }
 
     public static void printGreeting(String input) {
-        System.out.println("Hell " + input);
+        System.out.print("Hello " + input);
     }
 }

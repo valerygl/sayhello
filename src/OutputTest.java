@@ -11,11 +11,13 @@ public abstract class OutputTest {
     @Before
     public void setUpStreams() {
         System.setOut(new PrintStream(output));
+        System.out.println("Before called");
     }
 
     @After
     public void cleanUpStreams() {
         System.setOut(null);
+        System.out.println("After called");
     }
 }
 
