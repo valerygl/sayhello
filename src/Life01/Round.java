@@ -1,9 +1,8 @@
 package Life01;
 
-import java.io.IOException;
 
 class Round {
-    static char[][] doRound(char[][] massiv) throws IOException {
+    static char[][] doRound(char[][] massiv)  {
         int cnt = 0;
         byte sz = (byte) massiv.length;
         // set an empty field:
@@ -31,13 +30,17 @@ class Round {
                 if ((i < sz-1) && (j > 0) && (massiv[i+1][j-1] == 'X')) {cnt++;} // слева внизу
                 if ((i < sz-1) && (massiv[i+1][j] == 'X')) {cnt++;} // внизу
 
-                if (cnt == 2 || cnt == 3) {
+                if ((cnt > 3) || (cnt < 2)) {  tmpfield[i][j] = '-';  }
+
+                else if (cnt == 3) {  tmpfield[i][j] = 'X';  }
+
+                else if ((cnt == 2) & (massiv[i][j] == 'X')) {
 //                    tmpfield[i][j] = Character.forDigit(cnt, 10);
                       tmpfield[i][j] = 'X';
                 }
-                else {
-                    tmpfield[i][j] = '-';
-                }
+
+                else { tmpfield[i][j] = '-'; }
+
             }
         }
         return tmpfield;
